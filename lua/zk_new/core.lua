@@ -1,4 +1,5 @@
 local zk_util = require("zk.util")
+local util = require("zk_new.util")
 local M = {}
 
 ---Prompt for a new note with groups, paths, templates, and directories selections.
@@ -10,7 +11,7 @@ function M.new_interactive(options, cb)
   if not cwd then
     return
   end
-  local toml = zk_util.get_config_toml(cwd) or {}
+  local toml = util.get_config_toml(cwd) or {}
   local groups = toml.group -- Note that it is named `group` instead of `groups` in config.toml
 
   ---@param a string
